@@ -1,0 +1,63 @@
+@model POIViewModel
+
+@{
+    var place = Model.Place;
+    var reviews = Model.Reviews;
+    var user = Model.User;
+    List<string> types = new();
+    ViewData["Title"] = "Home Page";
+}
+<body class="poi_background">
+    <header style="margin-bottom: 5rem">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-smmb-3">
+            <div class="container-fluid d-flex justify-content-between">
+                <a class="navbar-brand" style="font-weight: bolder; font-size:xxx-large" asp-area="" asp-controller="Home" asp-action="Index"><span style="color: #00CC99">here</span> & <span style="color: #00CC99">now</span></a>
+                <div>
+                    <ul class="navbar-nav">
+                        @if (user is null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="Home"
+                                    asp-action="LoginRegister">Register/Login</a>
+                            </li>
+                        } else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="Home"
+                                    asp-action="LoginRegister">Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="User"
+                                    asp-action="YourTravelLog">Travel Log</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="Home"
+                                    asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3 d-flex flex-column gap-4">
+            
+            @if(place is null)
+            {
+                <h1>NOTHING TO SHOW BABY</h1>
+            } else 
+            {                    
+                <div class="d-flex justify-between">
+                    @await Html.PartialAsync("_PointOfInterest", place)
+                    <div class="m-auto" style="height: 12.5rem">
+                        <img class="w-100 h-100" src="~/Assets/knife-fork.png" alt="knife and fork icon" style="">
+                    </div>
+                </div>
+                @await Html.PartialAsync("_Reviews", reviews)
+                
+            }
+        </main>
+    </div>
+</body>
+

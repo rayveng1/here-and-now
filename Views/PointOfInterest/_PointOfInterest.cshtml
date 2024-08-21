@@ -1,0 +1,70 @@
+@model Place
+
+@{
+    var place = Model;
+    List<string> types = new();
+    ViewData["Title"] = "POICard";
+}
+
+<div class="card w-50" style="">
+    <div class="card-body d-flex flex-column gap-4">
+        <div>
+            <div class="d-flex justify-between gap-4">
+                <h2 class="card-title">@place.DisplayName.Text</h2>
+                <form asp-action="LogPOI" asp-controller="User" method="post">
+                    <input hidden asp-for="Rating">
+                    <input hidden asp-for="GoogleMapsUri">
+                    <input hidden asp-for="PriceLevel">
+                    <input hidden asp-for="DisplayName">
+                    <input hidden asp-for="Types">                    
+                    <button type="submit" class="btn mt-1 mb-2" style="width:fit-content; background-color: var(--primary-color); color:black">Log</button>
+                </form>
+            </div>
+            <h5 class="card-subtitle mb-2 text-body-secondary">@place.Rating/5</h5>
+        </div>
+        @{
+            // FIX ADDRESS
+            for (var i = 0; i < place.FormattedAddress.Length; i++)
+            {
+
+            }
+        }
+        <h6 class="card-subtitle mb-2 text-body-secondary">@place.FormattedAddress</h6>
+        @{
+
+            for (var i = 0; i < place.Types.Count; i++)
+            {
+                if (place.Types[i] == Types.American || place.Types[i] == Types.Bakery ||
+                place.Types[i] == Types.Bar || place.Types[i] == Types.Breakfast || place.Types[i] == Types.Cafe ||
+                place.Types[i] == Types.Chinese || place.Types[i] == Types.FastFood || place.Types[i] == Types.IceCream ||
+                place.Types[i] == Types.Italian || place.Types[i] == Types.Japanese || place.Types[i] == Types.Korean ||
+                place.Types[i] == Types.Mediterranean || place.Types[i] == Types.Mexican || place.Types[i] == Types.Pizza ||
+                place.Types[i] == Types.Ramen || place.Types[i] == Types.Restaurant || place.Types[i] == Types.Seafood ||
+                place.Types[i] == Types.Steak || place.Types[i] == Types.Library || place.Types[i] == Types.Park ||
+                place.Types[i] == Types.TouristAttraction || place.Types[i] == Types.Playground)
+                {
+                    var typeWordArr = place.Types[i].Split('_');
+                    @for (var j = 0; j < typeWordArr.Length; j++)
+                    {
+                        typeWordArr[j] = $"{typeWordArr[j][0].ToString().ToUpper()}{typeWordArr[j].Substring(1)}";
+                    }
+                    types.Add(String.Join(" ", typeWordArr));
+                }
+            }
+        }
+        <p class="card-text">@String.Join(", ", types)</p>
+        @if (place.PriceLevel == "PRICE_LEVEL_INEXPENSIVE")
+        {
+            <p class="card-text">Price Level: $</p>
+        }
+        else if (place.PriceLevel == "PRICE_LEVEL_MODERATE")
+        {
+            <p class="card-text">Price Level: $$</p>
+        }
+        else
+        {
+            <p class="card-text">Price Level: $$$</p>
+        }
+        <p class="card-text">Google Maps Link: <a href="@place.GoogleMapsUri">@place.GoogleMapsUri</a></p>
+    </div>
+</div>

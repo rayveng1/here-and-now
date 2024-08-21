@@ -1,0 +1,108 @@
+@model User
+
+@{
+    var user = Model;
+    var places = user.AssociatedPlaces;
+    ViewData["Title"] = "Home Page";
+}
+
+<body class="travel_log_background">
+    <header style="margin-bottom: 5rem">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-smmb-3">
+            <div class="container-fluid d-flex justify-content-between">
+                <a class="navbar-brand" style="font-weight: bolder; font-size:xxx-large" asp-area=""
+                    asp-controller="Home" asp-action="Index"><span style="color: #00CC99">here</span> & <span
+                        style="color: #00CC99">now</span></a>
+                <div>
+                    <ul class="navbar-nav">
+                        @if (user is null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="Home"
+                                    asp-action="LoginRegister">Register/Login</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="Home"
+                                    asp-action="LoginRegister">Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="User"
+                                    asp-action="YourTravelLog">Travel Log</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="Home"
+                                    asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="mx-auto" style="width:60%">
+        <div class="d-flex flex-column mx-auto">
+            <h1>Rayven's Travel Log</h1>
+            <div class="card" style="">
+                <div class="card-body d-flex">
+                    <div class="d-flex flex-column gap-4 justify-content-between">
+                        <div>
+                            <h2 class="card-title">Raising Cane's Chicken Fingers</h2>
+                            <h5 class="card-subtitle mb-2 text-body-secondary">4/5</h5>
+                        </div>
+                        @* @{
+                        // FIX ADDRESS
+                        for (var i = 0; i < place.FormattedAddress.Length; i++)
+                        {
+                        }
+                        } *@
+                        @* @{
+                        for (var i = 0; i < place.Types.Count; i++)
+                        {
+                        if (place.Types[i] == Types.American || place.Types[i] == Types.Bakery ||
+                        place.Types[i] == Types.Bar || place.Types[i] == Types.Breakfast || place.Types[i] == Types.Cafe ||
+                        place.Types[i] == Types.Chinese || place.Types[i] == Types.FastFood || place.Types[i] ==
+                        Types.IceCream ||
+                        place.Types[i] == Types.Italian || place.Types[i] == Types.Japanese || place.Types[i] ==
+                        Types.Korean ||
+                        place.Types[i] == Types.Mediterranean || place.Types[i] == Types.Mexican || place.Types[i] ==
+                        Types.Pizza ||
+                        place.Types[i] == Types.Ramen || place.Types[i] == Types.Restaurant || place.Types[i] ==
+                        Types.Seafood ||
+                        place.Types[i] == Types.Steak || place.Types[i] == Types.Library || place.Types[i] == Types.Park ||
+                        place.Types[i] == Types.TouristAttraction || place.Types[i] == Types.Playground)
+                        {
+                        var typeWordArr = place.Types[i].Split('_');
+                        @for (var j = 0; j < typeWordArr.Length; j++)
+                        {
+                        typeWordArr[j] = $"{typeWordArr[j][0].ToString().ToUpper()}{typeWordArr[j].Substring(1)}";
+                        }
+                        types.Add(String.Join(" ", typeWordArr));
+                        }
+                        }
+                        } *@
+                        <p class="card-text">Fast-Food</p>
+                        <p class="card-text">Price Level: $$$</p>
+                        @* @if (place.PriceLevel == "PRICE_LEVEL_INEXPENSIVE")
+                        {
+                        <p class="card-text">Price Level: $</p>
+                        }
+                        else if (place.PriceLevel == "PRICE_LEVEL_MODERATE")
+                        {
+                        <p class="card-text">Price Level: $$</p>
+                        }
+                        else
+                        {
+                        <p class="card-text">Price Level: $$$</p>
+                        } *@
+                    </div>
+                        <div class="p-3 mx-auto align-content-center">
+                            <img class="" src="~/Assets/knife-fork.png" alt="knife and fork icon" style="height:9rem">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
