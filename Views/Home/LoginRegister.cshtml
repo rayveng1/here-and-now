@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<body class="register-login-background">
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-smmb-3">
+            <div class="container-fluid d-flex justify-content-between">
+                <a class="navbar-brand text-shadow" style="font-weight: bolder; font-size:xxx-large" asp-area="" asp-controller="Home" asp-action="Index"><span style="color: #00CC99">here</span> & <span style="color: #00CC99">now</span></a>
+                <div >
+                    <ul class="navbar-nav">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div style="width: fit-content;" class="mx-auto">
+        <div style="width:fit-content">
+            @{
+                if(@ViewBag.Error is not null)
+                {
+                    <div class="alert alert-warning alert-dismissible fade show" style="" role="alert">
+                        @ViewBag.Error
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+            }
+            <div class="d-flex justify-content-center gap-5">
+                @await Html.PartialAsync("_RegisterForm")
+                @await Html.PartialAsync("_LoginForm")
+            </div>
+        </div>
+    </div>
+</body>
+

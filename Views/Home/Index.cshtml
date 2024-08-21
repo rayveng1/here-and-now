@@ -1,10 +1,289 @@
 ﻿@model Place
-
+@using Newtonsoft.Json
 @{
-    var data = Model;
+    var place = Model;
+    List<string> types = new();
     ViewData["Title"] = "Home Page";
+    bool showModal = place == null; // Adjust condition as needed
 }
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Pass the server-side boolean to JavaScript
+        var shouldShowModal = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(showModal));
 
-<div class="text-center">
-    <h1 class="display-4">ID: (@data.Id)</h1>
-</div>
+        if (!shouldShowModal) {
+            $('#GemModal').modal('show');
+        }
+    });
+</script>
+
+<body
+    style="background-image:radial-gradient(#65558f 0%, #574A79 18%, #4D4369 31%, #423A57 52%, #2D2A36 74%, #26242A 83%, #1E1E1E 100%)">
+
+    <header class="mb-5">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-smmb-3">
+            <div class="container-fluid d-flex justify-content-between">
+                <a class="navbar-brand text-shadow" style="font-weight: bolder; font-size:xxx-large" asp-area=""
+                    asp-controller="Home" asp-action="Index"><span style="color: #00CC99">here</span> & <span
+                        style="color: #00CC99">now</span></a>
+                <div>
+                    <ul class="navbar-nav">
+                        @if (ViewBag.UserId is null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="Home"
+                                    asp-action="LoginRegister">Register/Login</a>
+                            </li>
+                        } else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="Home"
+                                    asp-action="LoginRegister">Settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="User"
+                                    asp-action="YourTravelLog">Travel Log</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-shadow" asp-area="" asp-controller="Home"
+                                    asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="d-flex flex-column align-items-center gap-4">
+                <h1 class="text-shadow" style="font-size: 4rem;"><span style="color: #00CC99">wherever</span> you
+                    are,<br>uncover <span style="color: #00CC99">hidden gems</span> nearby.</h1>
+                <div class="d-flex flex-column w-50 px-5">
+                    <h2 style="font-size: 2.5rem;" class="align-self-start text-shadow">unsure where to go?</h2>
+                    <h2 style="font-size: 2.5rem;" class="align-self-end text-shadow">let us decide for you.</h2>
+                </div>
+                <a href="" data-bs-toggle="modal" data-bs-target="#GemModal"><img style="height: 7.5rem; width: 7.5rem;"
+                        src="~/Assets/gems.png" alt="gems icon"></a>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="GemModal" tabindex="1" aria-labelledby="GemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="SearchModal">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="GemModalLabel">What are you in the mood for?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h2 class="fs-5 m-3">Filters</h2>
+
+<form id="filtersForm" method="get" asp-action="GetPOI">
+    <div class="modal-body d-flex flex-column pt-0">
+        <div class="d-flex gap-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="american_restaurant" id="americanRestaurant">
+                <label class="form-check-label" for="americanRestaurant">
+                    American
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="bakery" id="bakery">
+                <label class="form-check-label" for="bakery">
+                    Bakery
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="bar" id="bar">
+                <label class="form-check-label" for="bar">
+                    Bar
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="breakfast_restaurant" id="breakfastRestaurant">
+                <label class="form-check-label" for="breakfastRestaurant">
+                    Breakfast
+                </label>
+            </div>
+        </div>
+        <div class="d-flex gap-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="cafe" id="cafe">
+                <label class="form-check-label" for="cafe">
+                    Cafe
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="chinese_restaurant" id="chineseRestaurant">
+                <label class="form-check-label" for="chineseRestaurant">
+                    Chinese
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="fast_food" id="fastFood">
+                <label class="form-check-label" for="fastFood">
+                    Fast-Food
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="ice_cream_shop" id="iceCreamShop">
+                <label class="form-check-label" for="iceCreamShop">
+                    Ice Cream
+                </label>
+            </div>
+        </div>
+        <div class="d-flex gap-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="italian_restaurant" id="italianRestaurant">
+                <label class="form-check-label" for="italianRestaurant">
+                    Italian
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="japanese_restaurant" id="japaneseRestaurant">
+                <label class="form-check-label" for="japaneseRestaurant">
+                    Japanese
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="korean_restaurant" id="koreanRestaurant">
+                <label class="form-check-label" for="koreanRestaurant">
+                    Korean
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="library" id="library">
+                <label class="form-check-label" for="library">
+                    Library
+                </label>
+            </div>
+        </div>
+        <div class="d-flex gap-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="mediterranean_restaurant" id="mediterraneanRestaurant">
+                <label class="form-check-label" for="mediterraneanRestaurant">
+                    Mediterranean
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="mexican_restaurant" id="mexicanRestaurant">
+                <label class="form-check-label" for="mexicanRestaurant">
+                    Mexican
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="park" id="park">
+                <label class="form-check-label" for="park">
+                    Park
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="pizza_restaurant" id="pizzaRestaurant">
+                <label class="form-check-label" for="pizzaRestaurant">
+                    Pizza
+                </label>
+            </div>
+        </div>
+        <div class="d-flex gap-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="playground" id="playground">
+                <label class="form-check-label" for="playground">
+                    Playground
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="ramen_restaurant" id="ramenRestaurant">
+                <label class="form-check-label" for="ramenRestaurant">
+                    Ramen
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="restaurant" id="restaurant">
+                <label class="form-check-label" for="restaurant">
+                    Restaurant
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="filters" value="seafood_restaurant" id="seafoodRestaurant">
+                <label class="form-check-label" for="seafoodRestaurant">
+                    Seafood
+                </label>
+            </div>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" name="filters" value="steak_house" id="steakHouse">
+            <label class="form-check-label" for="steakHouse">
+                Steak
+            </label>
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" name="filters" value="tourist_attraction" id="touristAttraction">
+            <label class="form-check-label" for="touristAttraction">
+                Tourist Attraction
+            </label>
+        </div>
+        <label for="radius" class="form-label fw-bold fs-5">Search Radius</label>
+        <div>
+            <input style="color:#00CC99" type="range" class="form-range" min="1" max="31" step="5"
+                id="radius" name="radius" oninput="this.nextElementSibling.value = this.value">
+            <output class="d-inline-flex fw-light fst-italic">16</output>
+            <p class="d-inline-flex fw-light fst-italic" style="margin: 0;"> miles</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary w-100" style="background-color: var(--primary-color); border: none">Search</button>
+    </div>
+</form>
+            @if (place is not null)
+            {
+//
+                    <form id="placeForm" action="@Url.Action("PointOfInterest", "PointOfInterest")" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="POIResult">@place.DisplayName.Text</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body d-flex flex-column">
+                                <h2 class="fs-5">@place.Rating</h2>
+                                @{
+                                    for (var i = 0; i < 1; i++)
+                                    {
+                                        if(place.Types[i] == Types.American || place.Types[i] == Types.Bakery ||
+                                            place.Types[i] == Types.Bar || place.Types[i] == Types.Breakfast || place.Types[i] == Types.Cafe ||
+                                            place.Types[i] == Types.Chinese || place.Types[i] == Types.FastFood || place.Types[i] == Types.IceCream ||
+                                            place.Types[i] == Types.Italian || place.Types[i] == Types.Japanese || place.Types[i] == Types.Korean ||
+                                            place.Types[i] == Types.Mediterranean || place.Types[i] == Types.Mexican || place.Types[i] == Types.Pizza ||
+                                            place.Types[i] == Types.Ramen || place.Types[i] == Types.Restaurant || place.Types[i] == Types.Seafood ||
+                                            place.Types[i] == Types.Steak || place.Types[i] == Types.Library || place.Types[i] == Types.Park ||
+                                            place.Types[i] == Types.TouristAttraction || place.Types[i] == Types.Playground)
+                                            {
+                                                var typeWordArr = place.Types[i].Split('_');
+                                                for (var j = 0; j < typeWordArr.Length; j++)
+                                                {
+                                                    typeWordArr[j] = $"{typeWordArr[j][0].ToString().ToUpper()}{typeWordArr[j].Substring(1)}";
+                                                }
+                                                types.Add(String.Join(" ", typeWordArr));
+                                            }
+                                    }
+                                }
+                                <h2 class="fs-6 fw-light">@String.Join(", ", types)</h2>
+                            </div>
+                            <div class="modal-footer">
+
+                                <input type="hidden" name="place" value='@JsonConvert.SerializeObject(place)' />
+
+                                <button type="submit" class="btn btn-primary"
+                                    style="background-color: var(--secondary-color); border: none">Check it
+                                    out</button>
+                            </div>
+                        </div>
+                    </form>
+                
+            }
+        </div>
+    </div>
+</body>

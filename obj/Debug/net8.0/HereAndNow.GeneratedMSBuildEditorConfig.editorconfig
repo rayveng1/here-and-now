@@ -22,16 +22,52 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/Home/LoginRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpblJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/Home/_LoginForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTG9naW5Gb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/Home/_RegisterForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfUmVnaXN0ZXJGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/PointOfInterest/PointOfInterest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9pbnRPZkludGVyZXN0XFBvaW50T2ZJbnRlcmVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/PointOfInterest/_PointOfInterest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9pbnRPZkludGVyZXN0XF9Qb2ludE9mSW50ZXJlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/PointOfInterest/_Reviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9pbnRPZkludGVyZXN0XF9SZXZpZXdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/User/TravelLog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxUcmF2ZWxMb2cuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/User/YourTravelLog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxZb3VyVHJhdmVsTG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/_ViewImports.cshtml]
@@ -41,7 +77,3 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Rayven/desktop/wos/Week 8/HereAndNow/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-g3tzeee8uq

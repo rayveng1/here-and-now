@@ -1,8 +1,32 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HereAndNow.bundle.scp.css",
-      "PackagePath": "staticwebassets\\HereAndNow.bundle.scp.css"
+      "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\Assets\\Backgrounds\\landing_page_bg",
+      "PackagePath": "staticwebassets\\Assets\\Backgrounds"
+    },
+    {
+      "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\Assets\\Backgrounds\\poi_background.png",
+      "PackagePath": "staticwebassets\\Assets\\Backgrounds\\poi_background.png"
+    },
+    {
+      "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\Assets\\Backgrounds\\register_login_gradient.png",
+      "PackagePath": "staticwebassets\\Assets\\Backgrounds\\register_login_gradient.png"
+    },
+    {
+      "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\Assets\\Backgrounds\\travel_log_background.png",
+      "PackagePath": "staticwebassets\\Assets\\Backgrounds\\travel_log_background.png"
+    },
+    {
+      "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\Assets\\gems.png",
+      "PackagePath": "staticwebassets\\Assets\\gems.png"
+    },
+    {
+      "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\Assets\\knife-fork.png",
+      "PackagePath": "staticwebassets\\Assets\\knife-fork.png"
+    },
+    {
+      "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\Scripts\\script.js",
+      "PackagePath": "staticwebassets\\Scripts\\script.js"
     },
     {
       "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\css\\site.css",
@@ -11,10 +35,6 @@
     {
       "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
-      "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
       "Id": "C:\\Users\\Rayven\\desktop\\wos\\Week 8\\HereAndNow\\wwwroot\\lib\\bootstrap\\LICENSE",

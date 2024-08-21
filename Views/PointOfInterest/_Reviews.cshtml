@@ -1,0 +1,23 @@
+@model string
+
+@{
+    var place = Model;
+    List<string> types = new();
+    ViewData["Title"] = "POICard";
+}
+
+<div class="card w-100" >
+    <div class="card-body">
+        <h3 class="card-title">Traveler Reviews</h3>
+        <div class="card w-100 bg-light" style="color:black">
+            <div class="card-body">
+                <h4 class="card-title">Rayven Gsell</h4>
+                <p class="card-text fw-light">Great chicken for an alright price!</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="btn" style="background-color: var(--primary-color); color: black">Card link</a>
+                    <p class="align-self-center mb-0">2 likes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

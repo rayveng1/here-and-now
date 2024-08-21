@@ -46,6 +46,16 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "microsoft.entityframeworkcore.design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "pomelo.entityframeworkcore.mysql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             }
           },
           "imports": [
